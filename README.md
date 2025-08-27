@@ -6,10 +6,6 @@ A web-based Graduands Clearance System built for **Mount Kigali University (MKU)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
-- [Usage](#usage)
-- [Project Structure](#project-structure)
-- [Contributing](#contributing)
-- [License](#license)
 
 
 ## Features
