@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MKU Graduands Clearance Management System</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Enhanced Header with Navigation -->
+      <header class="header">
+        <div class="header-content">
+          <div class="logo">
+            <h1>
+              <i class="fas fa-graduation-cap"></i> Mount Kigali University
+            </h1>
+            <p>Graduands Clearance Management System</p>
+          </div>
+
+          <!-- Main Navigation -->
+          <nav class="main-nav" id="main-nav">
+            <div class="nav-links">
+              <a href="#" class="nav-link" onclick="showStudentLogin()">
+                <i class="fas fa-sign-in-alt"></i>
+                <span>Student Login</span>
+              </a>
+              <a href="#" class="nav-link" onclick="showAdminLogin()">
+                <i class="fas fa-user-shield"></i>
+                <span>Department Login</span>
+              </a>
+              <a
+                href="#"
+                class="nav-link register-link"
+                onclick="showStudentRegister()"
+              >
+                <i class="fas fa-user-plus"></i>
+                <span>Register</span>
+              </a>
+            </div>
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+              <i class="fas fa-bars"></i>
+            </button>
+          </nav>
+
+          <!-- User Navigation (shown when logged in) -->
+          <nav class="user-nav" id="user-nav" style="display: none">
+            <div class="user-info-nav" id="user-info-nav"></div>
+            <div class="nav-actions">
+              <button class="nav-btn" onclick="showDashboard()">
+                <i class="fas fa-tachometer-alt"></i> Dashboard
+              </button>
+              <button class="nav-btn logout-btn" onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i> Logout
+              </button>
+            </div>
+          </nav>
+        </div>
+      </header>
+
+      <!-- Redesigned Hero Section -->
+      <section class="hero-section" id="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <div class="hero-main">
+            <div class="hero-text">
+              <div class="hero-badge">
+                <i class="fas fa-star"></i>
+                <span>Digital Clearance System</span>
+              </div>
+              <h1>Welcome to MKU Clearance Portal</h1>
+              <p class="hero-subtitle">
+                Streamlined graduation clearance process for Mount Kigali
+                University students. Complete your clearance requirements
+                efficiently with our digital platform.
+              </p>
+
+              <div class="hero-cta">
+                <button class="cta-btn primary" onclick="showStudentLogin()">
+                  <i class="fas fa-sign-in-alt"></i>
+                  Student Login
+                </button>
+                <button
+                  class="cta-btn secondary"
+                  onclick="showStudentRegister()"
+                >
+                  <i class="fas fa-user-plus"></i>
+                  New Student? Register
+                </button>
+              </div>
+
+              <div class="hero-features">
+                <div class="feature-item">
+                  <i class="fas fa-clock"></i>
+                  <span>24/7 Access</span>
+                </div>
+                <div class="feature-item">
+                  <i class="fas fa-shield-alt"></i>
+                  <span>Secure Platform</span>
+                </div>
+                <div class="feature-item">
+                  <i class="fas fa-mobile-alt"></i>
+                  <span>Mobile Friendly</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-visual">
+              <div class="hero-image-container">
+                <div class="floating-card stats-card">
+                  <div class="card-content">
+                    <i class="fas fa-users"></i>
+                    <div class="card-text">
+                      <h4>Students Served</h4>
+                      <p>Thousands of graduates</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="floating-card process-card">
+                  <div class="card-content">
+                    <i class="fas fa-check-circle"></i>
+                    <div class="card-text">
+                      <h4>9 Departments</h4>
+                      <p>Complete clearance</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- University Showcase Section -->
+      <section class="university-showcase" id="university-showcase">
+        <div class="showcase-content">
+          <div class="showcase-header">
+            <h2>Mount Kigali University</h2>
+            <p>Excellence in Education, Innovation in Learning</p>
+          </div>
+
+          <div class="showcase-grid">
+            <div class="showcase-item">
+              <img
+                src="./images/14.jpeg"
+                alt="MKU Campus"
+                class="showcase-image"
+              />
+              <div class="showcase-overlay">
+                <h3>Beautiful Campus</h3>
+                <p>Modern facilities and green spaces</p>
+              </div>
+            </div>
+            <div class="showcase-item">
+              <img
+                src="./images/15.jpeg"
+                alt="MKU Building"
+                class="showcase-image"
+              />
+              <div class="showcase-overlay">
+                <h3>Academic Excellence</h3>
+                <p>State-of-the-art learning facilities</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="clearance-process">
+            <h3>Clearance Process</h3>
+            <div class="process-steps">
+              <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                  <h4>Register</h4>
+                  <p>Create your account with your registration number</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                  <h4>Submit</h4>
+                  <p>Complete requirements for all 9 departments</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                  <h4>Track</h4>
+                  <p>Monitor your clearance status in real-time</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                  <h4>Graduate</h4>
+                  <p>Receive final clearance for graduation</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <main class="main">
+        <!-- Login/Register Section -->
+        <div id="auth-section" class="auth-section" style="display: none">
+          <div class="auth-container">
+            <div class="auth-header">
+              <button class="back-btn" onclick="showHomepage()">
+                <i class="fas fa-arrow-left"></i> Back to Home
+              </button>
+            </div>
+
+            <div class="auth-tabs">
+              <button
+                class="tab-btn active"
+                id="student-login-tab"
+                onclick="showLogin()"
+              >
+                <i class="fas fa-sign-in-alt"></i> Student Login
+              </button>
+              <button
+                class="tab-btn"
+                id="student-register-tab"
+                onclick="showRegister()"
+              >
+                <i class="fas fa-user-plus"></i> Student Register
+              </button>
+              <button
+                class="tab-btn"
+                id="admin-login-tab"
+                onclick="showAdminLoginForm()"
+              >
+                <i class="fas fa-user-shield"></i> Department Login
+              </button>
+            </div>
+
+            <!-- Student Login Form -->
+            <div id="login-form" class="auth-form active">
+              <div class="form-header">
+                <i class="fas fa-user-graduate"></i>
+                <h2>Student Login</h2>
+                <p>Access your clearance dashboard</p>
+              </div>
+              <form onsubmit="login(event)">
+                <div class="form-group">
+                  <label for="login-reg-number">
+                    <i class="fas fa-id-card"></i> Registration Number
+                  </label>
+                  <input
+                    type="text"
+                    id="login-reg-number"
+                    placeholder="e.g., BBICT/2023/12345"
+                    required
+                  />
+                  <small>Format: CourseCode/Year/ClassNumber</small>
+                </div>
+                <div class="form-group">
+                  <label for="login-password">
+                    <i class="fas fa-lock"></i> Password
+                  </label>
+                  <div class="password-input">
+                    <input type="password" id="login-password" required />
+                    <button
+                      type="button"
+                      class="password-toggle"
+                      onclick="togglePassword('login-password')"
+                    >
+                      <i class="fas fa-eye"></i>
+                    </button>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                  <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+              </form>
+            </div>
+
+            <!-- Student Registration Form -->
+            <div id="register-form" class="auth-form">
+              <div class="form-header">
+                <i class="fas fa-user-plus"></i>
+                <h2>Student Registration</h2>
+                <p>Create your clearance account</p>
+              </div>
+              <form onsubmit="register(event)">
+                <div class="form-group">
+                  <label for="reg-number">
+                    <i class="fas fa-id-card"></i> Registration Number
+                  </label>
+                  <input
+                    type="text"
+                    id="reg-number"
+                    placeholder="e.g., BBICT/2023/12345"
+                    required
+                  />
+                  <small>Format: CourseCode/Year/ClassNumber</small>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="first-name">
+                      <i class="fas fa-user"></i> First Name
+                    </label>
+                    <input type="text" id="first-name" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="last-name">
+                      <i class="fas fa-user"></i> Last Name
+                    </label>
+                    <input type="text" id="last-name" required />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="email">
+                    <i class="fas fa-envelope"></i> Email
+                  </label>
+                  <input type="email" id="email" required />
+                </div>
+                <div class="form-group">
+                  <label for="password">
+                    <i class="fas fa-lock"></i> Password
+                  </label>
+                  <div class="password-input">
+                    <input type="password" id="password" required />
+                    <button
+                      type="button"
+                      class="password-toggle"
+                      onclick="togglePassword('password')"
+                    >
+                      <i class="fas fa-eye"></i>
+                    </button>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                  <i class="fas fa-user-plus"></i> Register & Login
+                </button>
+              </form>
+            </div>
+
+            <!-- Admin Login Form -->
+            <div id="admin-login-form" class="auth-form">
+              <div class="form-header">
+                <i class="fas fa-user-shield"></i>
+                <h2>Department Login</h2>
+                <p>Department administration access</p>
+              </div>
+              <form onsubmit="adminLogin(event)">
+                <div class="form-group">
+                  <label for="admin-username">
+                    <i class="fas fa-user"></i> Username
+                  </label>
+                  <input type="text" id="admin-username" required />
+                </div>
+                <div class="form-group">
+                  <label for="admin-password">
+                    <i class="fas fa-lock"></i> Password
+                  </label>
+                  <div class="password-input">
+                    <input type="password" id="admin-password" required />
+                    <button
+                      type="button"
+                      class="password-toggle"
+                      onclick="togglePassword('admin-password')"
+                    >
+                      <i class="fas fa-eye"></i>
+                    </button>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                  <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- Student Dashboard -->
+        <div id="student-dashboard" class="dashboard" style="display: none">
+          <div class="dashboard-header">
+            <div class="header-content">
+              <h2><i class="fas fa-tachometer-alt"></i> Student Dashboard</h2>
+              <div class="user-info" id="user-info"></div>
+            </div>
+          </div>
+
+          <div class="dashboard-tabs">
+            <button class="tab-btn active" onclick="showClearanceStatus()">
+              <i class="fas fa-clipboard-check"></i> My Clearance
+            </button>
+            <button class="tab-btn" onclick="showClearedStudentsList()">
+              <i class="fas fa-users"></i> Cleared Students
+            </button>
+          </div>
+
+          <div id="clearance-status-tab" class="tab-content active">
+            <div class="clearance-status">
+              <h3><i class="fas fa-tasks"></i> Clearance Status</h3>
+              <div class="departments-grid" id="departments-grid">
+                <!-- Department cards will be populated here -->
+              </div>
+            </div>
+
+            <div class="overall-status" id="overall-status">
+              <!-- Overall status will be shown here -->
+            </div>
+          </div>
+
+          <div id="cleared-students-tab" class="tab-content">
+            <div class="cleared-students-section">
+              <h3><i class="fas fa-users"></i> Recently Cleared Students</h3>
+              <div class="cleared-students-list" id="cleared-students-list">
+                <!-- Cleared students will be populated here -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Admin Dashboard -->
+        <div id="admin-dashboard" class="dashboard" style="display: none">
+          <div class="dashboard-header">
+            <div class="header-content">
+              <h2><i class="fas fa-cogs"></i> Admin Dashboard</h2>
+              <div class="admin-info" id="admin-info"></div>
+            </div>
+          </div>
+
+          <!-- Admin Stats -->
+          <div class="stats-container" id="stats-container">
+            <!-- Stats will be populated here -->
+          </div>
+
+          <div class="admin-tabs">
+            <button class="tab-btn active" onclick="showClearanceRequests()">
+              <i class="fas fa-clipboard-list"></i> Clearance Requests
+              <span
+                class="notification-badge"
+                id="requests-badge"
+                style="display: none"
+              ></span>
+            </button>
+            <button
+              class="tab-btn"
+              onclick="showClearedStudents()"
+              id="cleared-students-tab"
+            >
+              <i class="fas fa-check-circle"></i> Cleared Students
+            </button>
+          </div>
+
+          <div id="clearance-requests" class="admin-content">
+            <div class="content-header">
+              <h3><i class="fas fa-clipboard-list"></i> Clearance Requests</h3>
+              <div class="filters-container">
+                <div class="search-box">
+                  <i class="fas fa-search"></i>
+                  <input
+                    type="text"
+                    id="search-input"
+                    placeholder="Search students..."
+                    onkeyup="handleSearch()"
+                  />
+                </div>
+                <select id="status-filter" onchange="handleStatusFilter()">
+                  <option value="all">All Status</option>
+                  <option value="pending">Pending</option>
+                  <option value="approved">Approved</option>
+                  <option value="rejected">Rejected</option>
+                </select>
+              </div>
+            </div>
+            <div class="requests-container" id="requests-container">
+              <!-- Clearance requests will be populated here -->
+            </div>
+            <div class="pagination-container" id="pagination-container">
+              <!-- Pagination will be populated here -->
+            </div>
+          </div>
+
+          <div
+            id="cleared-students"
+            class="admin-content"
+            style="display: none"
+          >
+            <h3><i class="fas fa-check-circle"></i> Cleared Students</h3>
+            <div class="cleared-container" id="cleared-container">
+              <!-- Cleared students will be populated here -->
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- File Upload Modal -->
+      <div id="upload-modal" class="modal" style="display: none">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3><i class="fas fa-upload"></i> Upload Document</h3>
+            <span class="close" onclick="closeUploadModal()">&times;</span>
+          </div>
+          <div class="modal-body">
+            <form id="upload-form" onsubmit="uploadFile(event)">
+              <div class="form-group">
+                <label for="upload-file">
+                  <i class="fas fa-file"></i> Select Document (PDF or Image)
+                </label>
+                <input
+                  type="file"
+                  id="upload-file"
+                  accept=".pdf,.jpg,.jpeg,.png"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="upload-comment">
+                  <i class="fas fa-comment"></i> Comment/Explanation
+                </label>
+                <textarea
+                  id="upload-comment"
+                  rows="4"
+                  placeholder="Explain why you're uploading this document..."
+                  required
+                ></textarea>
+              </div>
+              <input type="hidden" id="upload-department" />
+              <button type="submit" class="btn btn-primary">
+                <i class="fas fa-upload"></i> Upload Document
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- File View Modal -->
+      <div id="file-modal" class="modal" style="display: none">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3><i class="fas fa-files"></i> Uploaded Documents</h3>
+            <span class="close" onclick="closeFileModal()">&times;</span>
+          </div>
+          <div class="modal-body" id="file-modal-body">
+            <!-- Files will be displayed here -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="loading" class="loading" style="display: none">
+      <div class="spinner"></div>
+      <p>Loading...</p>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
